@@ -17,6 +17,12 @@ namespace Grammar
             {
                 Console.Write("숫자를 입력하세요(끝낼 때는 0) ");
                 snum = Console.ReadLine();
+                //무입력 예외처리
+                if (string.IsNullOrEmpty(snum))
+                {
+                    Console.WriteLine("입력값이 없어 프로그램을 종료 합니다.");
+                    break;
+                }
                 num = Convert.ToInt32(snum);
 
                 // quest1 : for -> foreach
@@ -30,7 +36,7 @@ namespace Grammar
                     sum = sum + i;
                 }
 
-                // if...else 조건문
+                // if...else 조건문 '==' 동일한 조건
                 if (num == 0)
                 {
                     Console.WriteLine("프로그램을 종료합니다.");
@@ -39,7 +45,16 @@ namespace Grammar
                 {
                     Console.WriteLine("1~{0}까지의 합계는 {1}입니다.", num, sum);
                 }
-
+                // '!=' 변수와 값이 다를 때
+                /* switch (num)
+                {
+                    case 0:
+                        Console.WriteLine("프로그램을 종료합니다.");
+                        break;
+                    default:
+                        Console.WriteLine("1~{0}까지의 합계는 {1}입니다.", num, sum);
+                        break;
+                }*/
             } while (num != 0);
         }
     }
